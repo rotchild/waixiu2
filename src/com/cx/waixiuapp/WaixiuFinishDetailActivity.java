@@ -2,7 +2,6 @@ package com.cx.waixiuapp;
 
 import com.cx.myobject.MyFinishObject;
 import com.cx.myobject.MyNoteShowDialog;
-import com.cx.myobject.MyTaskObject;
 import com.cx.util.MUtil;
 
 import android.app.Activity;

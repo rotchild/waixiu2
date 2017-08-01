@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class MyFinishObject implements Serializable{
 private String case_No,case_id,car_No,brand_name,is_target,target_No,parters_name,
 parter_manager,parter_mobile,dingsuner_name,dingsuner_mobile,yard_time,canRepair,waixiu_time,
-waixiu_depart,waixu_peijian,peijian_price,waixiu_price,about_price,note,outrepair_note;
+waixiu_depart,waixu_peijian,peijian_price,waixiu_price,about_price,note,outrepair_note,repair_endtime;
+
+
 
 
 
@@ -15,7 +17,8 @@ public MyFinishObject(String case_No, String case_id, String car_No,
 		String dingsuner_name, String dingsuner_mobile, String yard_time,
 		String canRepair, String waixiu_time, String waixiu_depart,
 		String waixu_peijian, String peijian_price, String waixiu_price,
-		String about_price, String note, String outrepair_note) {
+		String about_price, String note, String outrepair_note,
+		String repair_endtime) {
 	super();
 	this.case_No = case_No;
 	this.case_id = case_id;
@@ -38,6 +41,7 @@ public MyFinishObject(String case_No, String case_id, String car_No,
 	this.about_price = about_price;
 	this.note = note;
 	this.outrepair_note = outrepair_note;
+	this.repair_endtime = repair_endtime;
 }
 
 public String getCase_No() {
@@ -207,6 +211,14 @@ public String getOutrepair_note() {
 
 public void setOutrepair_note(String outrepair_note) {
 	this.outrepair_note = outrepair_note;
+}
+
+public String getRepair_endtime() {
+	return repair_endtime;
+}
+
+public void setRepair_endtime(String repair_endtime) {
+	this.repair_endtime = repair_endtime;
 }
 
 

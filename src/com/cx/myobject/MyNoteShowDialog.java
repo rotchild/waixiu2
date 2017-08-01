@@ -28,8 +28,8 @@ public class MyNoteShowDialog extends Dialog {
 	titleTv=(TextView)view.findViewById(R.id.noteshowdialogw_title);
 	noteTv=(TextView)view.findViewById(R.id.dialog_note_tv);
 	closeBtn=(Button)view.findViewById(R.id.dialogshow_close_btn);
-	int dialogWidth=(int)(screenWidth*3/4);
-	int dialogHeight=(int)(dialogWidth*2/3);
+	int dialogWidth=screenWidth*3/4;
+	int dialogHeight=dialogWidth*2/3;
 	super.addContentView(view, new LayoutParams(dialogWidth,dialogHeight));
 	}
 	public void setMyTitle(String titleStr){

@@ -4,7 +4,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.cx.myobject.MHttpParams;
-import com.cx.myobject.MHttpStorage;
 import com.cx.myobject.MyNoteDialog;
 import com.cx.myobject.MyTaskObject;
 import com.cx.util.MUtil;
@@ -22,9 +21,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 

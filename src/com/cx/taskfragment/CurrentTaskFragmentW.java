@@ -73,7 +73,7 @@ public class CurrentTaskFragmentW extends Fragment{
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
 				// TODO 自动生成的方法存根
 				limit=limit+5;
-				getCurrentTask();
+				getCurrentTask(false);
 				
 			}
 			
@@ -99,7 +99,7 @@ public class CurrentTaskFragmentW extends Fragment{
 			}
 			
 		});
-		getCurrentTask();
+		getCurrentTask(true);
 		
 	}
 	
@@ -141,9 +141,15 @@ public class CurrentTaskFragmentW extends Fragment{
 	}
 	
 	
-
-	public void getCurrentTask(){
-		currentTaskPd=ProgressDialog.show(getActivity(), "加载中", "请稍候...");
+/**
+ * 获取当前任务列表
+ * @param needDialog 是否需要遮罩
+ */
+	public void getCurrentTask(boolean needDialog){
+		if(needDialog){
+			currentTaskPd=ProgressDialog.show(getActivity(), "加载中", "请稍候...");
+		}
+		
 		AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
 		asyncHttpClient.addHeader("Charset", MHttpParams.DEFAULT_CHARSET);
 		asyncHttpClient.setTimeout(MHttpParams.DEFAULT_TIME_OUT);
@@ -281,7 +287,7 @@ public class CurrentTaskFragmentW extends Fragment{
 		switch(resultCode){
 		case 3://返回时刷新
 			
-			getCurrentTask();//更改状态，getCurrent自动清理
+			getCurrentTask(true);//更改状态，getCurrent自动清理
 			taskRecordAdapter.notifyDataSetChanged();
 			break;
 		default:

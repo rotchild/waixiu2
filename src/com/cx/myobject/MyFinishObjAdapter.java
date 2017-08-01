@@ -2,7 +2,6 @@ package com.cx.myobject;
 
 import java.util.List;
 
-import com.cx.myobject.TaskWRecordAdapter.ViewHolder;
 import com.cx.util.MUtil;
 import com.cx.waixiuapp.R;
 
@@ -73,7 +72,9 @@ public class MyFinishObjAdapter extends ArrayAdapter<MyFinishObject>{
 		//isVip????
 		String taskRecordTimeStamp=taskRecord.getYard_time();
 		String taskRecodrTime=MUtil.getDetailTime(taskRecordTimeStamp);
-		viewHolder.receiveTimeTv.setText(taskRecodrTime);
+		
+		String end_time=taskRecord.getRepair_endtime();
+		viewHolder.receiveTimeTv.setText(end_time);//显示任务结束时间
 		return view;
 	}
 class ViewHolder{

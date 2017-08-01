@@ -29,7 +29,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.tencent.android.tpush.XGPushManager;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -293,14 +292,14 @@ public void initView(){
 			switch(position){
 			case 0:
 				resetTextView();
-				currentTaskFragmentw.getCurrentTask();
+				currentTaskFragmentw.getCurrentTask(true);
 				currentTaskTv.setTextColor(Color.parseColor("#FCB18A"));
 				currentImage.setImageResource(R.drawable.currenttaskw);
 				break;
 				
 			case 1:
 				resetTextView();
-				finishedTaskFragmentw.getFinishTaskByHttp();
+				finishedTaskFragmentw.getFinishTaskByHttp(true);
 				finishTaskTv.setTextColor(Color.parseColor("#FCB18A"));
 				finishImage.setImageResource(R.drawable.finishtaskw);
 				break;
@@ -572,7 +571,7 @@ protected void onNewIntent(Intent intent) {
 	 // Toast.makeText(currentTaskActivity.this, "onNewIntent", Toast.LENGTH_SHORT).show();
 	 // mViewPager.setCurrentItem(0);
 	  currentTaskFragmentw.limit= currentTaskFragmentw.limit+5;
-	  currentTaskFragmentw.getCurrentTask();
+	  currentTaskFragmentw.getCurrentTask(true);
 }
 
 

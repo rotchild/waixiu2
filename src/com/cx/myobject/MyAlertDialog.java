@@ -27,10 +27,10 @@ public class MyAlertDialog extends Dialog {
 		View mView=LayoutInflater.from(getContext()).inflate(R.layout.malert_layout, null);
 		positiveButton=(Button)mView.findViewById(R.id.alert_positive_btn);
 		negativeButton=(Button)mView.findViewById(R.id.alert_negative_btn);
-		int dialogWidth=(int)(screenWidth*3/4);
-		int dialogHeight=(int)(dialogWidth*2/3);
-		positiveButton.getLayoutParams().width=(int)(dialogWidth*1/3);
-		negativeButton.getLayoutParams().width=(int)(dialogWidth*1/3);
+		int dialogWidth=screenWidth*3/4;
+		int dialogHeight=dialogWidth*2/3;
+		positiveButton.getLayoutParams().width=dialogWidth*1/3;
+		negativeButton.getLayoutParams().width=dialogWidth*1/3;
 		super.addContentView(mView, new LayoutParams(dialogWidth,dialogHeight));
 		
 	}

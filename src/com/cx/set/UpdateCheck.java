@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import com.cx.myobject.MHttpParams;
 import com.cx.myobject.UpdateObject;
 import com.cx.waixiuapp.R;
-import com.cx.waixiuapp.currentTaskActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;

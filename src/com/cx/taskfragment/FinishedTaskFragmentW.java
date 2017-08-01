@@ -9,12 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.cx.myobject.MHttpParams;
-import com.cx.myobject.MHttpStorage;
 import com.cx.myobject.MyFinishObjAdapter;
 import com.cx.myobject.MyFinishObject;
-import com.cx.myobject.MyTaskObject;
-import com.cx.myobject.TaskRecordList;
-import com.cx.myobject.TaskWRecordAdapter;
 import com.cx.util.MUtil;
 import com.cx.waixiuapp.R;
 import com.cx.waixiuapp.WaixiuFinishDetailActivity;
@@ -93,7 +89,7 @@ public class FinishedTaskFragmentW extends Fragment{
 		public void onRefresh(PullToRefreshBase refreshView) {
 			// TODO 自动生成的方法存根
 			limit=limit+15;
-			getFinishTaskByHttp();//已有clear
+			getFinishTaskByHttp(false);//已有clear
 		}
 		
 	});
@@ -136,10 +132,15 @@ public class FinishedTaskFragmentW extends Fragment{
 		// TODO 自动生成的方法存根
 		super.onPause();
 	}
-
-	public void getFinishTaskByHttp(){
+/**
+ * 获取已完成任务
+ * @param needDialog 是否需要遮罩
+ */
+	public void getFinishTaskByHttp(boolean needDialog){
+		if(needDialog){
+			finishTaskPd=ProgressDialog.show(getActivity(), "加载中...", "请稍后");
+		}
 		
-		finishTaskPd=ProgressDialog.show(getActivity(), "加载中...", "请稍后");
 		AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
 		asyncHttpClient.addHeader("Charset", MHttpParams.DEFAULT_CHARSET);
 		asyncHttpClient.setTimeout(MHttpParams.DEFAULT_TIME_OUT);
@@ -201,6 +202,9 @@ public class FinishedTaskFragmentW extends Fragment{
 								String yard_time=MUtil.getDetailTime(yard_timeStamp);
 								String repairState=mData.getString("repair_state");//是否可修
 								String repair_time=mData.getString("repair_time");
+								
+								String repair_endTimeStamp=mData.getString("repair_endtime");//完成时间时间戳
+								String repair_endTime=MUtil.getDetailTime(repair_endTimeStamp);
 								String repair_factoryname=mData.getString("repair_factoryname");
 								String repair_parts=mData.getString("repair_parts");
 								
@@ -233,7 +237,7 @@ public class FinishedTaskFragmentW extends Fragment{
 								
 								MyFinishObject mfinishTaskObject=new MyFinishObject(case_no,case_id,car_no,brand_name,is_targetStr,target_no
 										,parters_name,parter_manager,parter_mobile,dingsuner_name,
-										dingusner_mobile,add_timeStamp,repairState,repair_time,repair_factoryname,repair_parts,parts_price,repair_price,loss_price,repair_remark,outrepair_remark);//增加外修人员备注outrepair_remark
+										dingusner_mobile,add_timeStamp,repairState,repair_time,repair_factoryname,repair_parts,parts_price,repair_price,loss_price,repair_remark,outrepair_remark,repair_endTime);//增加外修人员备注outrepair_remark
 								mList.add(mfinishTaskObject);
 							}
 							mFinishObjAdapter.notifyDataSetChanged();
